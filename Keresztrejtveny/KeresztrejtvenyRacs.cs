@@ -62,4 +62,26 @@ internal class KeresztrejtvenyRacs
             Console.WriteLine();
         }
     }
+
+    public int MaxFuggolegesHossz()
+    {
+        int max = 0;
+        for (int j = 1; j <= OszlopokDb; j++)
+        {
+            int aktualis = 0;
+            for (int i = 1; i <= SorokDb + 1; i++) 
+            {
+                if (Racs[i, j] == '-')
+                {
+                    aktualis++;
+                }
+                else
+                {
+                    if (aktualis > max) max = aktualis;
+                    aktualis = 0;
+                }
+            }
+        }
+        return max;
+    }
 }
